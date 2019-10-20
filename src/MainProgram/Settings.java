@@ -9,40 +9,70 @@ import static MainProgram.Controller.programSettings;
  * Project: Mill
  * Package: sample
  * Created by keno on 14.11.16.
- *
  */
 class Settings {
 
     private Properties props;   //Eigenschaften
     private File Savefile;  //Datei zum speichern und laden
 
-    //Constructor
+    /**
+     * Instantiates a new Settings.
+     *
+     * @param Saveto the saveto
+     */
+//Constructor
     Settings(File Saveto){
         this.props = new Properties();
         this.Savefile = Saveto;
     }
 
-    //Einstellungen zuruecksetzen
+    /**
+     * Reset properties.
+     */
+//Einstellungen zuruecksetzen
     void resetProperties(){
         this.props.clear();
     }
 
-    //Einstellungsparameter zurueckgeben
+    /**
+     * Gets property.
+     *
+     * @param key the key
+     * @return the property
+     */
+//Einstellungsparameter zurueckgeben
     String getProperty(String key) {
         return this.props.getProperty(key);
     }
 
-    //Einstellungs Parameter setzen
+    /**
+     * Set property.
+     *
+     * @param key   the key
+     * @param value the value
+     */
+//Einstellungs Parameter setzen
     void setProperty(String key, String value){
         this.props.setProperty(key,value);
     }
 
-    //Einstellungs Parameter hinzufuegen
+    /**
+     * Add property.
+     *
+     * @param key   the key
+     * @param value the value
+     */
+//Einstellungs Parameter hinzufuegen
     void addProperty(String key, String value) {
         this.props.put(key, value);
     }
 
-    //Versuchen, die Einstellungen zu laden und je nach erfolg boolean zurueckgeben
+    /**
+     * Load properties boolean.
+     *
+     * @return the boolean
+     */
+//Versuchen, die Einstellungen zu laden und je nach erfolg boolean zurueckgeben
     Boolean loadProperties(){
         Boolean loaded = false;
         try {
@@ -61,7 +91,12 @@ class Settings {
         return loaded;
     }
 
-    //Einstellungen speichern
+    /**
+     * Save properties boolean.
+     *
+     * @return the boolean
+     */
+//Einstellungen speichern
     boolean saveProperties() {
         try {   //Versuchen, einstellungen zu speichern und dementsprechend boolean zurueckgeben
             FileOutputStream fos = new FileOutputStream(this.Savefile);
@@ -75,14 +110,24 @@ class Settings {
         return true;
     }
 
-    //Einstellungen speicherDatei zurueckgeben
+    /**
+     * Get file file.
+     *
+     * @return the file
+     */
+//Einstellungen speicherDatei zurueckgeben
     File getFile(){
         return this.Savefile;
     }
 
 //STATIC FUNKTIONS
 
-    //Programeinstellungen auf Fehler ueberpruefen
+    /**
+     * Checkdefaults boolean.
+     *
+     * @return the boolean
+     */
+//Programeinstellungen auf Fehler ueberpruefen
     static boolean checkdefaults(){
 
         if (!programSettings.loadProperties()){
@@ -100,7 +145,12 @@ class Settings {
         return false;
     }
 
-    //Debugfunktion
+    /**
+     * Tostring string.
+     *
+     * @return the string
+     */
+//Debugfunktion
     String tostring(){
         String string = "";
         try {

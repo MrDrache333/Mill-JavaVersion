@@ -41,9 +41,17 @@ public class Controller_Feedback {
     @FXML
     private Label statuslabel,charsleft;
 
+    /**
+     * The Timer.
+     */
     static Timer timer;
 
-    //Initialisierung aller benoetigten Komponenten
+    /**
+     * Initialize.
+     *
+     * @throws MalformedURLException the malformed url exception
+     */
+//Initialisierung aller benoetigten Komponenten
     @FXML
     @SuppressWarnings("unused")
     public void initialize() throws MalformedURLException {

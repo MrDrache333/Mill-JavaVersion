@@ -5,11 +5,10 @@ import java.io.File;
 
 /**
  * Created by keno on 08.11.16.
- *
+ * <p>
  * Eigenschaften und Funktionen eines Spielsteins
- *
+ * <p>
  * FUNKTION DIESER KLASSE:
- *
  */
 class stone {
 
@@ -19,6 +18,9 @@ class stone {
     private static final int B_DeathX = W_startX + 90, B_DeathY = 700;  //"TODES" Koordinaten
     private static final int adderY = -40;   //Verschiebung des Startpunktes der Spielsteine
     private static final File BLACKIMAGE = new File("images/black.png"), WHITEIMAGE = new File("images/white.png");//Pfade der zu verwenden Bilder
+    /**
+     * The Imagesize.
+     */
     static int IMAGESIZE = 70;    //Groesse des Bildes in Pixel default:70
     private int INDEX;  //Aktueller Index des Steins
 
@@ -31,7 +33,12 @@ class stone {
     @SuppressWarnings("unused")
     private int Position;   //Aktuelle Position des Steins
 
-    //Constuctor <- Neuen Stein generieren
+    /**
+     * Instantiates a new Stone.
+     *
+     * @param color the color
+     */
+//Constuctor <- Neuen Stein generieren
     stone(Color color){
         this.color = color; //Fabe uebernehmen
 
@@ -56,7 +63,13 @@ class stone {
 
     //FUNKTIONEN
 
-    //Funktion um den naechsten freien Stein des jewailigen Spielers zu bestimmen
+    /**
+     * Get next unused stone int.
+     *
+     * @param Player the player
+     * @return the int
+     */
+//Funktion um den naechsten freien Stein des jewailigen Spielers zu bestimmen
     static int getNextUnusedStone(int Player){
 
         for (int i = 0; i < Controller.Spieler[Player].getStones().length; i++){   //Jeden Stein des Spielers durchlaufen
@@ -67,12 +80,18 @@ class stone {
         return -1;  //Fehler zurueckgeben
     }
 
-    //Statische Variablen zuruecksetzen
+    /**
+     * Reset.
+     */
+//Statische Variablen zuruecksetzen
     static void reset(){
         GLOBALINDEX = 0;
     }
 
-    //Stein "Zerstoren"
+    /**
+     * Destroystone.
+     */
+//Stein "Zerstoren"
     void destroystone(){ //Entfernt Spielstein aus dem Spiel
         position.disableStonePosition(this.INDEX);  //Stein als unglueltig makieren
         this.Position = -2; //Stein Intern als ungueltig erklaeren
@@ -90,55 +109,105 @@ class stone {
 
     //GETTER UND SETTER
 
-    //Fabe des Steins wiedergeben
+    /**
+     * Gets color.
+     *
+     * @return the color
+     */
+//Fabe des Steins wiedergeben
     @SuppressWarnings("unused")
     public Color getColor() {
         return this.color;
     }
 
-    //Farbe des Steins setzen
+    /**
+     * Sets color.
+     *
+     * @param color the color
+     */
+//Farbe des Steins setzen
     @SuppressWarnings("unused")
     public void setColor(Color color) {
         this.color = color;
     }
 
-    //Aktuelle Coordinaten des Steins zurueckgeben
+    /**
+     * Gets coordinate.
+     *
+     * @return the coordinate
+     */
+//Aktuelle Coordinaten des Steins zurueckgeben
     coordinate getCoordinate() {
         return this.Coordinate;
     }
 
-    //Spielfeldposition des Steins setzen
+    /**
+     * Set position.
+     *
+     * @param POSITION the position
+     */
+//Spielfeldposition des Steins setzen
     void setPosition(int POSITION){
         position.setStonePosition(this.INDEX,POSITION);
         this.Position = POSITION;
     }
 
-    //Spielfeldposition des Steins abrufen
+    /**
+     * Get position int.
+     *
+     * @return the int
+     */
+//Spielfeldposition des Steins abrufen
     int getPosition(){
         return position.getPoint(this.INDEX);
     }
 
-    //Spielsteincoordinaten setzen
+    /**
+     * Sets coordinate.
+     *
+     * @param COORD the coord
+     */
+//Spielsteincoordinaten setzen
     void setCoordinate(coordinate COORD) {
         this.Coordinate = COORD;
 
     }
 
-    //Finale Spielsteincoordinate abrufen
+    /**
+     * Gets final coordinate.
+     *
+     * @return the final coordinate
+     */
+//Finale Spielsteincoordinate abrufen
     coordinate getFinalCoordinate() {
         return this.finalCoordinate;
     }
 
-    //Finale Spielsteinkoordinate setzen (um eine Bewegund zum angegebenen Punkt zu ermöglichen)
+    /**
+     * Sets final coordinate.
+     *
+     * @param finalPosition the final position
+     */
+//Finale Spielsteinkoordinate setzen (um eine Bewegund zum angegebenen Punkt zu ermöglichen)
     void setFinalCoordinate(coordinate finalPosition) {
         this.finalCoordinate = finalPosition;
     }
 
+    /**
+     * Get image file.
+     *
+     * @return the file
+     */
     @SuppressWarnings("unused")
     public File getImage(){
         return this.image;
     }
 
+    /**
+     * Set imagesize.
+     *
+     * @param imagesize the imagesize
+     */
     static void setIMAGESIZE(int imagesize){
         IMAGESIZE = imagesize;
     }

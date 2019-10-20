@@ -10,12 +10,9 @@ import static MainProgram.Controller.ProgramThemePack;
 import static MainProgram.Controller.writeerror;
 
 /**
- *
  * FUNKTION DIESER KLASSE:
  * Diese Klasse ist fuer das Verarbeiten von Sounddateien verantwortlich
- *
  */
-
 class sound {
 
     private File soundfile;
@@ -24,7 +21,13 @@ class sound {
     private static File tempfile;
     private String Type;
 
-    //Constuctor <- Neue Sounddatei kreieren
+    /**
+     * Instantiates a new Sound.
+     *
+     * @param Soundfile the soundfile
+     * @param type      the type
+     */
+//Constuctor <- Neue Sounddatei kreieren
 	sound(File Soundfile,String type){
         this.soundfile = Soundfile;
         this.Type = type;
@@ -32,7 +35,10 @@ class sound {
 
 //FUNKTIONEN
 
-    //Sounddatei abspielen
+    /**
+     * Play.
+     */
+//Sounddatei abspielen
     void play() {
         tempfile = this.soundfile;
 
@@ -78,7 +84,10 @@ class sound {
         }
     }
 
-    //Abspielen Stoppen
+    /**
+     * Stop.
+     */
+//Abspielen Stoppen
     @SuppressWarnings("unused")
     void stop(){
         //Wenn Datei abgespielt wird, stoppen
@@ -96,13 +105,23 @@ class sound {
         return this.soundfile;
     }
 
-    //Zurueckgeben ob Sounddatei nach abgespielt wird
+    /**
+     * Is playing boolean.
+     *
+     * @return the boolean
+     */
+//Zurueckgeben ob Sounddatei nach abgespielt wird
     @SuppressWarnings("unused")
     boolean isPlaying(){
         if (this.started) return this.clip.isActive(); else return false;
     }
 
-    //Sounddatei setzen bzw. aendern
+    /**
+     * Sets soundfile.
+     *
+     * @param Soundfile the soundfile
+     */
+//Sounddatei setzen bzw. aendern
     @SuppressWarnings("unused")
     void setSoundfile(File Soundfile) {
         this.soundfile = Soundfile;

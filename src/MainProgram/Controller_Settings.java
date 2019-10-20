@@ -15,8 +15,6 @@ import static MainProgram.Controller.*;
 
 /**
  * Created by keno on 11.11.16.
- *
- *
  */
 public class Controller_Settings {
 
@@ -31,6 +29,11 @@ public class Controller_Settings {
     //Zwischenspeicher fuer das aktuelle Themepack
     private String Theme;
 
+    /**
+     * Initialize.
+     *
+     * @throws MalformedURLException the malformed url exception
+     */
     @FXML
     @SuppressWarnings("unused")
     public void initialize() throws MalformedURLException {

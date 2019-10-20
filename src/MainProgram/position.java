@@ -8,14 +8,13 @@ import java.awt.*;
  * Project: Mill
  * Package: ${PACKAGE_NAME}
  * Created by keno on 09.11.16.
- *
+ * <p>
  * FUNKTION DIESER KLASSE:
  * Auslagerung von Arrays, welche wichtige Informationen ueber das Spielfeld und die darauf befindenen "Positionen" und Steine, sowie moegliche Zugkombinationen
  * Ausserdem enthaelt Sie wichtige Funktionen, welche fuer das bestimmen von bestimmten Positionen als auch fuer das Auslesen vo Mehrdimensionalen Arrays zustaendig sind
- *
- *
+ * <p>
+ * <p>
  * Die Positionen auf dem Spielfeld werden ermittelt indem von Oben-Links, Schritt fuer Schritt, nach Unten-Rechts von 0 bis 23 durchnummeriert wird
- *
  */
 class position{
 
@@ -193,13 +192,23 @@ class position{
 
 //FUNKTIONEN
 
-    //Resetet Daten an angegebener Position (auch bei Spielsteinbewegung aufrufen um alte Position als Frei zu makieren)
+    /**
+     * Rem stone position.
+     *
+     * @param STONEINDEX the stoneindex
+     */
+//Resetet Daten an angegebener Position (auch bei Spielsteinbewegung aufrufen um alte Position als Frei zu makieren)
     static void remStonePosition(int STONEINDEX){
         PointisFree[StoneonPosition[STONEINDEX]] = true;    //Liesst die Position des Steins aus und setzt die Position auf Frei
         StoneonPosition[STONEINDEX] = -1;   //Setzt Position des Steins auf "nicht vorhanden" -1 stellt hierbei einen Platzhalter da
     }
 
-    //Resetet Daten an angegebener Position wobei der Stein als nicht mehr verwendbar makiert wird
+    /**
+     * Disable stone position.
+     *
+     * @param STONEINDEX the stoneindex
+     */
+//Resetet Daten an angegebener Position wobei der Stein als nicht mehr verwendbar makiert wird
     static void disableStonePosition(int STONEINDEX){
         PointisFree[StoneonPosition[STONEINDEX]] = true;
         StoneonPosition[STONEINDEX] = -2;
@@ -214,7 +223,14 @@ class position{
         return false;
     }
 
-    //Gibt zurueck ob der Punkt die Zielposition erreichen kann unter beruecksichtigung der freien Positionen und des Weges
+    /**
+     * Isableto reach point boolean.
+     *
+     * @param STARTPOINT the startpoint
+     * @param STOPPOINT  the stoppoint
+     * @return the boolean
+     */
+//Gibt zurueck ob der Punkt die Zielposition erreichen kann unter beruecksichtigung der freien Positionen und des Weges
     static boolean isabletoReachPoint(int STARTPOINT, int STOPPOINT){
 
         for (int i = 0; i < REACHABLEPOINTS[STARTPOINT].length; i++) {   //Jeden Wert des Arrays durchlaufen
@@ -227,7 +243,14 @@ class position{
         return false;
     }
 
-    //Ueberpruefen ob Stein des Spielers eine Muehle bildet
+    /**
+     * Is win combination boolean.
+     *
+     * @param ActivePlayer the active player
+     * @param ActivePoint  the active point
+     * @return the boolean
+     */
+//Ueberpruefen ob Stein des Spielers eine Muehle bildet
     static boolean isWinCombination(int ActivePlayer, int ActivePoint){
         boolean win = true;
         boolean containsActivePoint = false;
@@ -251,7 +274,13 @@ class position{
         return false;
     }
 
-    //Gibt SpielerIndex fuer gegebenen Punkt zurueck
+    /**
+     * Get player indexfor point int.
+     *
+     * @param Point the point
+     * @return the int
+     */
+//Gibt SpielerIndex fuer gegebenen Punkt zurueck
     static int getPlayerIndexforPoint(int Point){
         try {
             int Stone = getStoneIndexforPoint(Point);
@@ -268,7 +297,10 @@ class position{
         return -1;
     }
 
-    //Setzt Statische Arrays und Werte zurueck
+    /**
+     * Reset.
+     */
+//Setzt Statische Arrays und Werte zurueck
     static void reset(){
         PointisFree = new boolean[Points.length];
         StoneonPosition = new int[Points.length];
@@ -280,7 +312,13 @@ class position{
 
 //GETTER UND SETTER
 
-    //Gibt zurueck ob die Angegebene Position belegt ist oder nicht
+    /**
+     * Is position free boolean.
+     *
+     * @param POSITION the position
+     * @return the boolean
+     */
+//Gibt zurueck ob die Angegebene Position belegt ist oder nicht
     @Contract(pure = true)  //Error unterdruecken
     static boolean isPositionFree(int POSITION){
         boolean free;
@@ -292,7 +330,13 @@ class position{
         return free;   //Liesst den aktuellen Status der Position aus und gib diese zurueck
     }
 
-    //Gibt coordinaten des geforderten Punktes zurueck
+    /**
+     * Get point int.
+     *
+     * @param index the index
+     * @return the int
+     */
+//Gibt coordinaten des geforderten Punktes zurueck
     @Contract(pure = true)  //Error unterdruecken
     static int getPoint(int index){
         try {
@@ -302,7 +346,13 @@ class position{
         }
     }
 
-    //Gibt Coordinaten fuer uebergebenen Punkt zurueck
+    /**
+     * Get coordinatefor point coordinate.
+     *
+     * @param Point the point
+     * @return the coordinate
+     */
+//Gibt Coordinaten fuer uebergebenen Punkt zurueck
     @Contract(pure = true)  //Error unterdruecken
     static coordinate getCoordinateforPoint(int Point){
         try {
@@ -312,17 +362,34 @@ class position{
         }
     }
 
-    //Gibt die erreichbaren Punkte eines Punktes zurueck
+    /**
+     * Get reachable points arrayfor point int [ ].
+     *
+     * @param Point the point
+     * @return the int [ ]
+     */
+//Gibt die erreichbaren Punkte eines Punktes zurueck
     static int[] getReachablePointsArrayforPoint(int Point){
         return REACHABLEPOINTS[Point];
     }
 
-    //Gibt die noetige Win Kombination
+    /**
+     * Get win combis int [ ] [ ].
+     *
+     * @return the int [ ] [ ]
+     */
+//Gibt die noetige Win Kombination
     static int[][] getWinCombis(){
         return WinCombination;
     }
 
-    //Gibt zurueck, welcher Stei auf gegebener Position ist (Wenn leer -> Gibt -1 zurueck)
+    /**
+     * Get stone indexfor point int.
+     *
+     * @param Point the point
+     * @return the int
+     */
+//Gibt zurueck, welcher Stei auf gegebener Position ist (Wenn leer -> Gibt -1 zurueck)
     @Contract(pure = true)  //Error unterdruecken
     static int getStoneIndexforPoint(int Point){
         for (int i= 0; i <StoneonPosition.length;i++){
@@ -331,7 +398,13 @@ class position{
         return -1;
     }
 
-    //Gibt index des Punktes zurueck welcher im bereich der Coordinate liegt, wenn keiner im bereich -> gibt -1 zurueck
+    /**
+     * Get rected point int.
+     *
+     * @param COORD the coord
+     * @return the int
+     */
+//Gibt index des Punktes zurueck welcher im bereich der Coordinate liegt, wenn keiner im bereich -> gibt -1 zurueck
     static int getRectedPoint(coordinate COORD){
         for (int i = 0; i < Points.length; i++){   //Jeden Punkt durchlaufen
             if (doesRectPoint(Points[i],COORD))return i;   //Index, wenn gefunden, zurueckgeben
@@ -339,58 +412,114 @@ class position{
         return -1;  //Wenn nicht gefunden, -1 als vergleichswert zurueckgeben
     }
 
-    //Setzt einen Stein an eine Position
+    /**
+     * Set stone position.
+     *
+     * @param STONEINDEX the stoneindex
+     * @param POINTINDEX the pointindex
+     */
+//Setzt einen Stein an eine Position
     static void setStonePosition(int STONEINDEX, int POINTINDEX){
         StoneonPosition[STONEINDEX] = POINTINDEX;   //Setzt die neue Position des Steins in das Array (Gleicher Index wie Stein)
         PointisFree[POINTINDEX] = false;    //Makiert den uebergebenen SpielPunkt als besetzt
     }
 
-    //Gibt zurueck, ueber welche Position sich der Mauszeiger zuzeit befindet
+    /**
+     * Get hovering position int.
+     *
+     * @return the int
+     */
+//Gibt zurueck, ueber welche Position sich der Mauszeiger zuzeit befindet
     static int getHoveringPosition(){
         return hoveringPosition;
     }
 
-    //Setzt die Position, ueber welche Position zurzeit "gehovert" wird
+    /**
+     * Set hovering position.
+     *
+     * @param Position the position
+     */
+//Setzt die Position, ueber welche Position zurzeit "gehovert" wird
     static void setHoveringPosition(int Position){
         hoveringPosition = Position;
     }
 
-    //Gibt den letzten ueberprueften SpielerIndex zurueck
+    /**
+     * Gets last checked player.
+     *
+     * @return the last checked player
+     */
+//Gibt den letzten ueberprueften SpielerIndex zurueck
     static int getLastCheckedPlayer() {
         return lastCheckedPlayer;
     }
 
-    //Setzt den zuletzt ueberprueften SpielerIndex
+    /**
+     * Sets last checked player.
+     *
+     * @param lastCheckedPlayer the last checked player
+     */
+//Setzt den zuletzt ueberprueften SpielerIndex
     static void setLastCheckedPlayer(int lastCheckedPlayer) {
         position.lastCheckedPlayer = lastCheckedPlayer;
     }
 
-    //Gibt die Standardkoordinaten des Spielfeldes zurueck
+    /**
+     * Get default points coordinate [ ].
+     *
+     * @return the coordinate [ ]
+     */
+//Gibt die Standardkoordinaten des Spielfeldes zurueck
     static coordinate[] getDefaultPoints() {
         return defaultPoints;
     }
 
-    //Gibt die Standard RachablePoints zurueck
+    /**
+     * Get default reachablepoints int [ ] [ ].
+     *
+     * @return the int [ ] [ ]
+     */
+//Gibt die Standard RachablePoints zurueck
     static int[][] getDefaultREACHABLEPOINTS() {
         return defaultREACHABLEPOINTS;
     }
 
-    //Gibt die Standard Wincombinations zurueck
+    /**
+     * Get default win combination int [ ] [ ].
+     *
+     * @return the int [ ] [ ]
+     */
+//Gibt die Standard Wincombinations zurueck
     static int[][] getDefaultWinCombination() {
         return defaultWinCombination;
     }
 
-    //Setzt die Spielfeldkoordinaten <- Themepack
+    /**
+     * Sets points.
+     *
+     * @param points the points
+     */
+//Setzt die Spielfeldkoordinaten <- Themepack
     static void setPoints(coordinate[] points) {
         Points = points;
     }
 
-    //Setzt die ReachablePoints <- Themepack
+    /**
+     * Sets reachablepoints.
+     *
+     * @param REACHABLEPOINTS the reachablepoints
+     */
+//Setzt die ReachablePoints <- Themepack
     static void setREACHABLEPOINTS(int[][] REACHABLEPOINTS) {
         position.REACHABLEPOINTS = REACHABLEPOINTS;
     }
 
-    //Setzt die WinCombinations <- Themepack
+    /**
+     * Sets win combination.
+     *
+     * @param winCombination the win combination
+     */
+//Setzt die WinCombinations <- Themepack
     static void setWinCombination(int[][] winCombination) {
         WinCombination = winCombination;
     }

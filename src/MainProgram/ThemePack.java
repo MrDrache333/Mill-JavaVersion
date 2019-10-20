@@ -30,7 +30,12 @@ class ThemePack {
     private File Path;
     private File Themeroot;
 
-    //Constructor
+    /**
+     * Instantiates a new Theme pack.
+     *
+     * @param name the name
+     */
+//Constructor
     ThemePack(String name){
         this.Name = name;
         this.Themeroot = new File("Themes/" + name + "/");  //Rootverzeichnis des Themepacks bestimmen
@@ -39,17 +44,32 @@ class ThemePack {
         this.Path = new File("Themes/" + name + "/" + name + ".properties");    //Speicherdatei festlegen
     }
 
-    //Themepack Name zurueckgeben
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
+//Themepack Name zurueckgeben
     String getName() {
         return Name;
     }
 
-    //Themeroot Verzeichnis zurueckgeben
+    /**
+     * Gets themeroot.
+     *
+     * @return the themeroot
+     */
+//Themeroot Verzeichnis zurueckgeben
     File getThemeroot() {
         return Themeroot;
     }
 
-    //Themepack laden
+    /**
+     * Load theme boolean.
+     *
+     * @return the boolean
+     */
+//Themepack laden
     boolean loadTheme(){
         Sout("Trying to Load Themepack: " + this.Name);
         try{
@@ -159,7 +179,12 @@ class ThemePack {
         return true;
     }
 
-    //Vorhandene Themepacks als Stringarray zurueckgeben
+    /**
+     * Get themes array list.
+     *
+     * @return the array list
+     */
+//Vorhandene Themepacks als Stringarray zurueckgeben
     static ArrayList<String> getThemes(){
 
         //Im Themeroot nach Ordnern suchen dessen Inhalt den selben Namen als EinstellungsDatei hat
@@ -176,7 +201,10 @@ class ThemePack {
         return Themes;
     }
 
-    //Erstellt das Standard Theme Pack als "BackUp"
+    /**
+     * Makedefaultpack.
+     */
+//Erstellt das Standard Theme Pack als "BackUp"
     static void makedefaultpack(){
 
         Settings DefaultTheme = new Settings(new File("Themes/default/default.properties"));

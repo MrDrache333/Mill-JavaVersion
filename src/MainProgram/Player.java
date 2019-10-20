@@ -5,7 +5,7 @@ import java.util.Date;
 
 /**
  * Created by keno on 08.11.16.
- *
+ * <p>
  * FUNKTION DIESER KLASSE:
  * Sie ist verantwortlich fuer das uebersichtliche anlegen eines Spielerprofil's
  */
@@ -27,8 +27,12 @@ class Player {
     private boolean hasOnlyMills = false;
 
 
-
-    //Constructor <- Erstellt neuen Spieler
+    /**
+     * Instantiates a new Player.
+     *
+     * @param color the color
+     */
+//Constructor <- Erstellt neuen Spieler
     Player(Color color){
         this.color = color;
         this.Active = false;            //If Player is still Active
@@ -45,7 +49,12 @@ class Player {
 
 //FUNKTIONEN
 
-    //Gibt Index des Aktuellen Spielers zurueck
+    /**
+     * Gets player.
+     *
+     * @return the player
+     */
+//Gibt Index des Aktuellen Spielers zurueck
     static int getactivePlayer() {
         try {
 
@@ -59,7 +68,10 @@ class Player {
         return -1;
     }
 
-    //Diese Funktion bewirkt einen Spielerwechsel
+    /**
+     * Next player.
+     */
+//Diese Funktion bewirkt einen Spielerwechsel
     static void nextPlayer(){
         //Der Code ist so gut, dass dieser sogar einen Fehler von getActivePlayer beruecksichtigt XD Man siehts nur nicht auf dem ersten Blick
         int ActivePlayer = getactivePlayer();
@@ -73,7 +85,12 @@ class Player {
         Controller.turnsWithoutMill++;
     }
 
-    //Gibt Index des naechsten Spielers zurueck
+    /**
+     * Getnext player int.
+     *
+     * @return the int
+     */
+//Gibt Index des naechsten Spielers zurueck
     static int getnextPlayer(){
         int ActivePlayer = getactivePlayer();
         if (ActivePlayer + 1 < Controller.Spieler.length){
@@ -83,17 +100,28 @@ class Player {
         }
     }
 
-    //Den "Zerstoerten" Steinen 1 Hinzufuegen
+    /**
+     * Add death stones.
+     */
+//Den "Zerstoerten" Steinen 1 Hinzufuegen
     void addDeathStones(){
         this.DeathStones++;
     }
 
-    //Statische Variablen zuruecksetzen
+    /**
+     * Reset.
+     */
+//Statische Variablen zuruecksetzen
     static void reset(){
         anzPlayer = 0;
     }
 
-    //Kann Spieler gueltige Zuege machen
+    /**
+     * Is moveable boolean.
+     *
+     * @return the boolean
+     */
+//Kann Spieler gueltige Zuege machen
     boolean isMoveable(){
 
         if (this.DeathStones == 7)return true;  //Wenn Spieler springen kann ist immer eine Position frei
@@ -108,7 +136,12 @@ class Player {
         return false;
     }
 
-    //Funktion zum pruefen ob der Spieler nur Steine in Mühlen hat
+    /**
+     * Hasonlymills boolean.
+     *
+     * @return the boolean
+     */
+//Funktion zum pruefen ob der Spieler nur Steine in Mühlen hat
     boolean hasonlymills(){
         for (stone Stone:this.stones){
             if (Stone.getPosition() != -1){
@@ -134,6 +167,11 @@ class Player {
         return this.Active;
     }
 
+    /**
+     * Sets active.
+     *
+     * @param active the active
+     */
     void setActive(boolean active) {
         if (this.Active && !active){    //Wenn Zug vorbei
             turntime = new Date().getTime() - turnstarttime;
@@ -145,84 +183,185 @@ class Player {
         this.Active = active;
     }
 
+    /**
+     * Gets points.
+     *
+     * @return the points
+     */
     int getPoints() {
         return this.Points;
     }
 
+    /**
+     * Sets points.
+     *
+     * @param points the points
+     */
     void setPoints(int points) {
         this.Points = points;
     }
 
+    /**
+     * Get stones stone [ ].
+     *
+     * @return the stone [ ]
+     */
     stone[] getStones() {
         return this.stones;
     }
 
+    /**
+     * Get stone stone.
+     *
+     * @param INDEX the index
+     * @return the stone
+     */
     stone getStone(int INDEX){
         return this.stones[INDEX];
     }
 
+    /**
+     * Get death stones int.
+     *
+     * @return the int
+     */
     @SuppressWarnings("unused")
     public int getDeathStones(){
         return this.DeathStones;
     }
 
+    /**
+     * Gets choosen stone.
+     *
+     * @return the choosen stone
+     */
     int getChoosenStone() {
         return ChoosenStone;
     }
 
+    /**
+     * Sets choosen stone.
+     *
+     * @param choosenStone the choosen stone
+     */
     void setChoosenStone(int choosenStone) {
         ChoosenStone = choosenStone;
     }
 
+    /**
+     * Gets color.
+     *
+     * @return the color
+     */
     Color getColor() {
         return color;
     }
 
+    /**
+     * Sets color.
+     *
+     * @param color the color
+     */
     @SuppressWarnings("unused")
     public void setColor(Color color) {
         this.color = color;
     }
 
+    /**
+     * Can take stone boolean.
+     *
+     * @return the boolean
+     */
     boolean CanTakeStone() {
         return canTakeStone;
     }
 
+    /**
+     * Sets can take stone.
+     *
+     * @param canTakeStone the can take stone
+     */
     void setCanTakeStone(boolean canTakeStone) {
         this.canTakeStone = canTakeStone;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     String getName() {
         return Name;
     }
 
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
     void setName(String name) {
         Name = name;
     }
 
+    /**
+     * Gets turntime.
+     *
+     * @return the turntime
+     */
     public long getTurntime() {
         return turntime;
     }
 
+    /**
+     * Gets totaltime.
+     *
+     * @return the totaltime
+     */
     public long getTotaltime() {
         return totaltime;
     }
 
+    /**
+     * Sets anz player.
+     *
+     * @param anzPlayer the anz player
+     */
     public static void setAnzPlayer(int anzPlayer) {
         Player.anzPlayer = anzPlayer;
     }
 
+    /**
+     * Sets turntime.
+     *
+     * @param turntime the turntime
+     */
     public void setTurntime(long turntime) {
         this.turntime = turntime;
     }
 
+    /**
+     * Sets totaltime.
+     *
+     * @param totaltime the totaltime
+     */
     public void setTotaltime(long totaltime) {
         this.totaltime = totaltime;
     }
 
+    /**
+     * Gets turnstarttime.
+     *
+     * @return the turnstarttime
+     */
     public long getTurnstarttime() {
         return turnstarttime;
     }
 
+    /**
+     * Get has only mills boolean.
+     *
+     * @return the boolean
+     */
     boolean getHasOnlyMills(){
         return hasOnlyMills;
     }

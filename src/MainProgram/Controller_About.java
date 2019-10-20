@@ -22,7 +22,12 @@ public class Controller_About {
     @FXML
     private Label abouttext;
 
-    //Initialisierung aller benoetigten Komponenten
+    /**
+     * Initialize.
+     *
+     * @throws MalformedURLException the malformed url exception
+     */
+//Initialisierung aller benoetigten Komponenten
     @FXML
     @SuppressWarnings("unused")
     public void initialize() throws MalformedURLException {

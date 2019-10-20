@@ -1,4 +1,6 @@
 # Project exclude paths
-/library/
 /out/
-/Themes/
+*.log
+*.icloud
+/exportToHTML/MainProgram/
+/config.properties
