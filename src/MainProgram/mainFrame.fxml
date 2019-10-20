@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: BLACK;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainProgram.Controller">
+   <children>
+      <ImageView fx:id="game_playground" fitHeight="800.0" fitWidth="1200.0" layoutX="12.0" mouseTransparent="true" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../../Themes/default/images/gamefield.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="game_rand1" fitHeight="833.0" fitWidth="207.0" layoutX="-3.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-17.0" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="999.8292694091797" AnchorPane.topAnchor="-16.0">
+         <image>
+            <Image url="@../../Themes/default/images/game_rand.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="game_rand" fitHeight="833.0" fitWidth="207.0" layoutX="999.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-17.0" AnchorPane.leftAnchor="998.1707305908203" AnchorPane.rightAnchor="-2.1707305908203125" AnchorPane.topAnchor="-16.0">
+         <image>
+            <Image url="@../../Themes/default/images/game_rand.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="menu_background" fitHeight="833.0" fitWidth="1464.0" layoutX="-171.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true" visible="false" AnchorPane.bottomAnchor="-32.0" AnchorPane.topAnchor="-1.0">
+         <image>
+            <Image url="@../../Themes/default/images/menu.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="menu_title" alignment="CENTER" layoutY="14.0" prefWidth="1200.0" text="Mühle - Das Spiel" textFill="#9e6d03" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="Trattatello" size="120.0" />
+         </font>
+      </Label>
+      <Button fx:id="menu_startgame" alignment="CENTER" defaultButton="true" layoutX="414.0" layoutY="285.0" mnemonicParsing="false" onAction="#startgame" prefHeight="96.0" prefWidth="373.0" style="-fx-background-color: BROWN;" text="Spiel starten" AnchorPane.leftAnchor="414.0" AnchorPane.rightAnchor="413.0">
+         <font>
+            <Font name="Big Caslon Medium" size="50.0" />
+         </font>
+      </Button>
+      <Button fx:id="menu_exitgame" alignment="CENTER" cancelButton="true" layoutX="414.0" layoutY="555.0" mnemonicParsing="false" onAction="#exitgame" prefHeight="96.0" prefWidth="373.0" style="-fx-background-color: BROWN;" text="Beenden" AnchorPane.leftAnchor="414.0" AnchorPane.rightAnchor="413.0">
+         <font>
+            <Font name="Big Caslon Medium" size="50.0" />
+         </font>
+      </Button>
+      <Button fx:id="menu_settings" alignment="CENTER" layoutX="414.0" layoutY="422.0" mnemonicParsing="false" onAction="#settings" prefHeight="96.0" prefWidth="373.0" style="-fx-background-color: BROWN;" text="Einstellungen" AnchorPane.leftAnchor="414.0" AnchorPane.rightAnchor="413.0">
+         <font>
+            <Font name="Big Caslon Medium" size="50.0" />
+         </font>
+      </Button>
+      <Button fx:id="menu_about" alignment="CENTER" cancelButton="true" layoutX="141.0" layoutY="740.0" mnemonicParsing="false" onAction="#About" prefHeight="40.0" prefWidth="118.0" style="-fx-background-color: BROWN;" text="About">
+         <font>
+            <Font name="Big Caslon Medium" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="menu_feedback" alignment="CENTER" cancelButton="true" layoutX="10.0" layoutY="740.0" mnemonicParsing="false" onAction="#Feedback" prefHeight="40.0" prefWidth="118.0" style="-fx-background-color: BROWN;" text="Feedback">
+         <font>
+            <Font name="Big Caslon Medium" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="game_title" alignment="CENTER" layoutY="286.0" lineSpacing="0.1" prefHeight="192.0" prefWidth="176.0" text="   Mühle    Das Spiel" textAlignment="CENTER" textFill="#9e6d03" textOverrun="CLIP" wrapText="true" AnchorPane.bottomAnchor="284.0" AnchorPane.leftAnchor="500.0" AnchorPane.rightAnchor="500.0" AnchorPane.topAnchor="286.0">
+         <font>
+            <Font name="Trattatello" size="50.0" />
+         </font>
+      </Label>
+      <TextField fx:id="namefield_player1" alignment="CENTER" blendMode="MULTIPLY" layoutX="11.0" layoutY="180.0" prefHeight="39.0" prefWidth="176.0" promptText="Name" text="Spieler 1" AnchorPane.bottomAnchor="581.0" AnchorPane.leftAnchor="11.0" AnchorPane.rightAnchor="1013.0" AnchorPane.topAnchor="180.0">
+         <font>
+            <Font name="System Italic" size="17.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="namefield_player2" alignment="CENTER" blendMode="MULTIPLY" layoutX="1012.0" layoutY="180.0" prefHeight="39.0" prefWidth="176.0" promptText="Name" text="Spieler 2" AnchorPane.bottomAnchor="580.0" AnchorPane.leftAnchor="1012.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="180.0">
+         <font>
+            <Font name="System Italic" size="17.0" />
+         </font>
+      </TextField>
+      <Label fx:id="pointstext1" layoutX="11.0" layoutY="259.0" prefHeight="26.0" prefWidth="88.0" text="Punkte:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="pointlabel_player1" alignment="CENTER_RIGHT" layoutX="99.0" layoutY="261.0" prefHeight="23.0" prefWidth="88.0" text="0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="pointlabel_player2" alignment="CENTER_RIGHT" layoutX="1090.0" layoutY="261.0" prefHeight="23.0" prefWidth="88.0" text="0">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="pointstext2" layoutX="1010.0" layoutY="258.0" prefHeight="26.0" prefWidth="80.0" text="Punkte:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerstatus_player1" alignment="CENTER" layoutX="7.0" layoutY="227.0" prefHeight="17.0" prefWidth="187.0" text="Ist am Zug!" textAlignment="CENTER">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="playerstatus_player2" alignment="CENTER" layoutX="1006.0" layoutY="227.0" prefHeight="17.0" prefWidth="187.0" text="Ist am Zug!" textAlignment="CENTER">
+         <font>
+            <Font name="Arial Black" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="player1timelabel" alignment="CENTER_RIGHT" layoutX="99.0" layoutY="286.0" prefHeight="23.0" prefWidth="88.0" text="000 Sek.">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="player1timetext" layoutX="11.0" layoutY="284.0" prefHeight="26.0" prefWidth="88.0" text="Zugzeit:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="player2timetext" layoutX="1010.0" layoutY="284.0" prefHeight="26.0" prefWidth="80.0" text="Zugzeit:">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="player2timelabel" alignment="CENTER_RIGHT" layoutX="1090.0" layoutY="286.0" prefHeight="23.0" prefWidth="88.0" text="000 Sek.">
+         <font>
+            <Font name="Arial Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="stone9" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="17.0" layoutY="701.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/white.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="stone8" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="17.0" layoutY="661.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/white.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="stone7" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="16.0" layoutY="622.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/white.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="stone6" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="16.0" layoutY="582.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/white.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="stone5" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="17.0" layoutY="542.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/white.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="stone4" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="17.0" layoutY="502.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/white.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="stone3" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="16.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/white.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="stone2" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="16.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/white.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="stone1" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="17.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/white.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="stone0" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="17.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/white.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="stone19" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="1114.0" layoutY="706.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/black.png" />
+         </image></ImageView>
+      <ImageView fx:id="stone18" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="1114.0" layoutY="666.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/black.png" />
+         </image></ImageView>
+      <ImageView fx:id="stone17" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="1113.0" layoutY="627.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/black.png" />
+         </image></ImageView>
+      <ImageView fx:id="stone16" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="1113.0" layoutY="587.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/black.png" />
+         </image></ImageView>
+      <ImageView fx:id="stone15" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="1114.0" layoutY="547.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/black.png" />
+         </image></ImageView>
+      <ImageView fx:id="stone14" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="1114.0" layoutY="507.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/black.png" />
+         </image></ImageView>
+      <ImageView fx:id="stone13" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="1113.0" layoutY="468.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/black.png" />
+         </image></ImageView>
+      <ImageView fx:id="stone12" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="1113.0" layoutY="428.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/black.png" />
+         </image></ImageView>
+      <ImageView fx:id="stone11" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="1114.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/black.png" />
+         </image></ImageView>
+      <ImageView fx:id="stone10" blendMode="SRC_ATOP" fitHeight="70.0" fitWidth="70.0" layoutX="1114.0" layoutY="356.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Themes/default/images/black.png" />
+         </image></ImageView>
+      <ImageView fx:id="positionhover" fitHeight="70.0" fitWidth="70.0" layoutX="565.0" layoutY="365.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true" visible="false" />
+      <Label fx:id="MessageLabel" alignment="CENTER" layoutX="350.0" layoutY="28.0" mouseTransparent="true" opacity="0.8" prefHeight="70.0" prefWidth="500.0" style="-fx-background-color: #969696;" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Arial Black" size="25.0" />
+         </font>
+      </Label>
+      <MenuBar fx:id="menubar" layoutY="-29.0" prefHeight="29.0" prefWidth="1200.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Spiel">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#settings" text="Einstellungen" />
+              <MenuItem mnemonicParsing="false" onAction="#giveup" text="Aufgeben" />
+              <MenuItem mnemonicParsing="false" onAction="#closeprogram" text="Programm beenden" />
+            </items>
+          </Menu>
+          <Menu disable="true" mnemonicParsing="false" text="Hilfe" visible="false">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Hilfe öffnen" />
+                  <MenuItem mnemonicParsing="false" text="Über" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainProgram.Controller_Feedback">
+    <children>
+        <ImageView fx:id="background" fitHeight="449.0" fitWidth="758.0" layoutX="-40.0" layoutY="-13.0" opacity="0.54" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="-40.0" AnchorPane.rightAnchor="-38.0">
+            <image>
+                <Image url="@../../Themes/default/images/menu.png" />
+            </image>
+        </ImageView>
+        <Label alignment="CENTER" layoutX="184.0" layoutY="14.0" text="Feedback Assistent" textFill="#9e6d03" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <font>
+                <Font name="Trattatello" size="50.0" />
+            </font>
+        </Label>
+        <Button fx:id="backbutton" layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#backbuttonaction" text="&lt; Zurück" textFill="#006fff" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="1.0">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+        </Button>
+      <Button fx:id="sendbutton" disable="true" layoutX="552.0" layoutY="346.0" mnemonicParsing="false" onAction="#sendmessage" text="Senden" AnchorPane.rightAnchor="28.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Label layoutX="43.0" layoutY="101.0" prefHeight="19.0" prefWidth="60.0" text="Name">
+         <font>
+            <Font name="Big Caslon Medium" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="namefield" layoutX="103.0" layoutY="97.0" promptText="Mustermann" />
+      <TextField fx:id="adressfield" layoutX="368.0" layoutY="97.0" promptText="Mustermann@Email.com" />
+      <TextArea fx:id="messagearea" layoutX="26.0" layoutY="141.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="196.0" prefWidth="626.0" wrapText="true" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.0" />
+      <Label layoutX="308.0" layoutY="101.0" prefHeight="19.0" prefWidth="60.0" text="E-Mail*">
+         <font>
+            <Font name="Big Caslon Medium" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="1.0" layoutY="381.0" prefHeight="17.0" prefWidth="100.0" text="*Pflichtfelder" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="1.0">
+         <font>
+            <Font size="12.0" />
+         </font></Label>
+      <Label fx:id="statuslabel" alignment="TOP_CENTER" layoutX="88.0" layoutY="341.0" prefHeight="64.0" prefWidth="482.0" text="Ihr Feedback hilft uns, unsere Programme weiter zu optimieren" textAlignment="CENTER" wrapText="true" AnchorPane.rightAnchor="130.0">
+         <font>
+            <Font name="Big Caslon Medium" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="charsleft" alignment="BOTTOM_LEFT" layoutX="31.0" layoutY="335.0" prefHeight="19.0" prefWidth="41.0" text="300">
+         <font>
+            <Font name="Big Caslon Medium" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER_RIGHT" layoutX="11.0" layoutY="141.0" prefHeight="17.0" prefWidth="13.0" text="*" />
+    </children>
+</AnchorPane>

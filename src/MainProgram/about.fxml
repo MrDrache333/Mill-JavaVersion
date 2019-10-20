@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainProgram.Controller_About">
+    <children>
+        <ImageView fx:id="background" fitHeight="428.0" fitWidth="759.0" layoutX="-233.0" opacity="0.54" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="-1.0" AnchorPane.topAnchor="0.0">
+            <image>
+                <Image url="@../../Themes/default/images/menu.png" />
+            </image>
+        </ImageView>
+        <Label alignment="CENTER" layoutX="57.0" layoutY="14.0" prefHeight="95.0" prefWidth="246.0" text="Über uns" textFill="#9e6d03" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="57.0">
+            <font>
+                <Font name="Trattatello" size="50.0" />
+            </font>
+        </Label>
+        <Button layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#backbuttonaction" text="&lt; Zurück" textFill="#006fff" AnchorPane.leftAnchor="1.0" AnchorPane.topAnchor="1.0">
+            <font>
+                <Font name="Arial Bold" size="15.0" />
+            </font>
+        </Button>
+      <Label fx:id="abouttext" alignment="TOP_CENTER" contentDisplay="CENTER" layoutX="57.0" layoutY="93.0" prefHeight="287.0" prefWidth="246.0" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="35.0" AnchorPane.rightAnchor="35.0">
+         <font>
+            <Font name="Big Caslon Medium" size="15.0" />
+         </font></Label>
+      <Label layoutX="57.0" layoutY="378.0" prefHeight="17.0" prefWidth="246.0" text="© 2016 BBSoftware. All rights reserved" textFill="#656565" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="57.0" AnchorPane.rightAnchor="57.0" />
+    </children>
+</AnchorPane>

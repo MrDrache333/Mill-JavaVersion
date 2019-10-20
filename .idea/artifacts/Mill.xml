@@ -1,0 +1,35 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Mill">
+    <output-path>$PROJECT_DIR$/out/artifacts/Mill</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="MainProgram.Main" />
+        <option name="description" value="" />
+        <option name="height" value="800" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="Mühle - Das Spiel" />
+        <option name="vendor" value="" />
+        <option name="version" value="1.11" />
+        <option name="width" value="1200" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Mill.jar">
+        <element id="module-output" name="Mill" />
+        <element id="directory" name="Themes">
+          <element id="directory" name="default">
+            <element id="dir-copy" path="$PROJECT_DIR$/Themes/default" />
+          </element>
+        </element>
+      </element>
+      <element id="directory" name="Themes">
+        <element id="dir-copy" path="$PROJECT_DIR$/Themes" />
+      </element>
+      <element id="directory" name="library">
+        <element id="file-copy" path="$PROJECT_DIR$/library/activation.jar" />
+        <element id="file-copy" path="$APPLICATION_HOME_DIR$/redist/annotations-java8.jar" />
+        <element id="file-copy" path="$PROJECT_DIR$/library/javax.mail.jar" />
+      </element>
+    </root>
+  </artifact>
+</component>
